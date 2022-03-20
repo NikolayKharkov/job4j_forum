@@ -1,8 +1,8 @@
 package ru.job4j.model;
 
+import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +16,7 @@ public class Post {
 
     private String description;
 
+    @CreationTimestamp
     private Calendar created;
 
     public int getId() {

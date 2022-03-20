@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.job4j.model.Post;
 import ru.job4j.repository.PostRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -21,6 +22,7 @@ public class PostService {
         return postRepository.findById(id).get();
     }
 
+    @Transactional
     public void save(Post post) {
         int id = post.getId();
         if (id != 0) {
