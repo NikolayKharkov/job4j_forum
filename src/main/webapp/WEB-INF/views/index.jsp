@@ -48,7 +48,7 @@
                         </a>
                         <c:out value="${post.name}"/>
                     </td>
-                    <td><c:out value="${post.created}"/></td>
+                    <td><c:out value="${post.created.time}"/></td>
                 </tr>
             </c:forEach>
             </tbody>
