@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,8 +18,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <title>Форум job4j</title>
+    <title>Пользовательские посты</title>
 </head>
 <body>
 <div class="container">
@@ -37,32 +36,44 @@
         </ul>
     </div>
 </div>
-<div class="container mt-3">
-    <div class="row">
-        <h4>Форум job4j</h4>
-    </div>
-    <div class="row">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Тема</th>
-                <th scope="col">Автор</th>
-                <th scope="col">Дата</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${posts}" var="post">
-                <tr>
-                    <td>
-                        <a href='<c:url value="/post?id=${post.id}"/>'>
-                            <c:out value="${post.name}"/>
-                        </a>
-                    </td>
-                    <td><c:out value="${post.user.username}"/></td>
-                    <td><c:out value="${post.created.time}"/></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+<div class="container">
+    <div class="container pt-3">
+        <div class="row">
+            <div class="card" style="width: 100%">
+                <div class="card-header">
+                    Мои посты
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Название поста</th>
+                            <th scope="col">Дата создания</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${usersPosts}" var="post">
+                            <tr>
+                                <td>
+                                    <c:out value="${post.name}"/>
+                                </td>
+                                <td>
+                                    <c:out value="${post.created.time}"/>
+                                </td>
+                                <td><a class="btn btn-primary" href="<c:url value='edit?id=${post.id}'/>">
+                                    Редактировать пост</a>
+                                </td>
+                                <td><a class="btn btn-danger" href="<c:url value='/delete?id=${post.id}'/>">
+                                    Удалить пост</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+</body>
+</html>

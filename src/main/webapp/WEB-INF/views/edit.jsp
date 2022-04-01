@@ -19,6 +19,21 @@
     <title>Post edit</title>
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='/'/>">Все посты</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='/edit?id=${0}'/>"> Создать пост </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='/usersPosts'/>"> Мои посты </a>
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="container pt-3">
     <div class="row">
         <div class="card" style="width: 100%">
@@ -37,7 +52,7 @@
                     <label>Название</label>
                     <input required type="text" class="form-control" name="name" value="${post.name}">
                     <label>Описание</label>
-                    <input required type="text" class="form-control" name="description" value="${post.description}">
+                    <textarea input required type="text" class="form-control" name="description" value="${post.description}"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Сохранить</button>
             </form>
