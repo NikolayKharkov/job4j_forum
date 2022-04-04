@@ -19,7 +19,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
 
-    <title>Post edit</title>
+    <title>Post Page</title>
 </head>
 <body>
 <div class="container">

@@ -56,7 +56,7 @@ public class PostControlTest {
                 .andDo(print())
                 .andExpect(status().is3xxRedirection());
         ArgumentCaptor<Post> argument = ArgumentCaptor.forClass(Post.class);
-        verify(posts).save(argument.capture());
+        verify(posts).saveOrUpdate(argument.capture());
         assertEquals(argument.getValue().getName(), "Куплю ладу-грант.");
     }
 
@@ -68,7 +68,7 @@ public class PostControlTest {
                 .andDo(print())
                 .andExpect(status().is3xxRedirection());
         ArgumentCaptor<Post> argument = ArgumentCaptor.forClass(Post.class);
-        verify(posts).save(argument.capture());
+        verify(posts).saveOrUpdate(argument.capture());
         assertEquals(argument.getValue().getName(), "Куплю ладу-грант.");
     }
 

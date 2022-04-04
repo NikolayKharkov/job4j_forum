@@ -52,7 +52,7 @@
                     <label>Название</label>
                     <input required type="text" class="form-control" name="name" value="${post.name}">
                     <label>Описание</label>
-                    <textarea input required type="text" class="form-control" name="description" value="${post.description}"></textarea>
+                    <input required type="text" class="form-control" name="description" value="${post.description}">
                 </div>
                 <button type="submit" class="btn btn-primary">Сохранить</button>
             </form>

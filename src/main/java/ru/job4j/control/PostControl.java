@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.job4j.model.Comment;
 import ru.job4j.model.Post;
 import ru.job4j.model.User;
 import ru.job4j.service.PostService;
@@ -56,27 +55,11 @@ public class PostControl {
         return "redirect:/usersPosts ";
     }
 
-    @PostMapping("/addComment")
-    public String addComment(@RequestParam("id") int id,
-                             @RequestParam("text") String text,
-                             Authentication authentication) {
-        User user = getUserFromSession(authentication);
-        Post post = postService.getPostById(id);
-        Comment comment = new Comment();
-        comment.setPost(post);
-        comment.setText(text);
-        comment.setUser(user);
-        post.addComment(comment);
-        postService.addComment(post);
-        return "redirect:/post" + "?id=" + id;
-        //post?id=12
-    }
-
     @PostMapping("/save")
     public String save(@ModelAttribute Post post, Authentication authentication) {
         User user = getUserFromSession(authentication);
         post.setUser(user);
-        postService.save(post);
+        postService.saveOrUpdate(post);
         return "redirect:/";
     }
 
